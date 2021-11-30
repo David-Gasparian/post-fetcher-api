@@ -30,9 +30,9 @@ class PostsControlers {
     }
   }
 
-  delete = (req, res) => {
+  delete = async (req, res) => {
     try {
-      PostsServises.delete(req.query.postId);
+     await PostsServises.delete(req.query.postId);
       res.status(status.success)
       .json({success: true, data: {}});
     } catch (e) {
@@ -40,9 +40,9 @@ class PostsControlers {
     }
   }
 
-  update = (req, res) => {
+  update = async (req, res) => {
     try {
-      PostsServises.updata(req.body.id, req.body.title, req.body.body);
+      await PostsServises.updata(req.body.id, req.body.title, req.body.body);
       res.status(status.success)
       .json({success: true, data: {}});
     } catch (e) {
